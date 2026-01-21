@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}МФЦ — услуги онлайн{% endblock %}</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    {% block extra_head %}
+        <!-- Здесь можно добавлять дополнительные стили или скрипты для конкретных страниц -->
+    {% endblock %}
+</head>
+<body>
+
+    <!-- Шапка сайта (можно сделать навигацию позже) -->
+    <header>
+        <div class="container">
+            <h1>МФЦ Москвы</h1>
+            <p>Электронные услуги без очередей</p>
+        </div>
+    </header>
+
+    <!-- Основной контент страницы -->
+    <main class="container">
+        {% block content %}
+            <!-- Здесь будет содержимое дочерних шаблонов (home.html и других) -->
+        {% endblock %}
+    </main>
+
+    <!-- Футер (опционально) -->
+    <footer>
+        <div class="container">
+            <p>© 2026 МФЦ Москвы. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Модальное окно подачи заявки (общее для всего сайта) -->
+    <div id="application-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">×</span>
+            <h2 class="modal-title">Подать заявку</h2>
+
+            <form id="application-form">
+                {% csrf_token %}
+                <input type="hidden" name="service_id" value="">
+
+                <label for="first_name">Имя *</label>
+                <input type="text" id="first_name" name="first_name" required>
+
+                <label for="last_name">Фамилия *</label>
+                <input type="text" id="last_name" name="last_name" required>
+
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="comment">Комментарий (необязательно)</label>
+                <textarea id="comment" name="comment" rows="4"></textarea>
+
+                <div style="margin-top: 1.5rem; text-align: right;">
+                    <button type="submit" class="btn btn-primary">Отправить заявку</button>
+                    <button type="button" class="btn btn-outline modal-close">Отмена</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Подключение JavaScript (если есть) -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    {% block extra_js %}
+        <!-- Дополнительные скрипты для конкретных страниц -->
+    {% endblock %}
+</body>
+</html>

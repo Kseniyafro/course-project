@@ -1,0 +1,59 @@
+{% extends 'mfc/base.html' %}
+
+{% block title %}МФЦ — главная{% endblock %}
+
+{% block content %}
+
+<header>
+    <div class="container">
+        <h1>МФЦ Москвы онлайн</h1>
+        <p>Подавайте заявки без очередей — быстро и удобно</p>
+    </div>
+</header>
+
+<div class="container">
+    <h2 style="text-align:center; margin:2rem 0 1.5rem;">Популярные услуги</h2>
+
+    <div class="service-grid">
+        <div class="service-card">
+            <div class="service-card-header">Оформить карту москвича</div>
+            <div class="service-card-body">
+                <p>Льготная карта для транспорта, скидок и социальных выплат</p>
+                <p class="service-card-price">Бесплатно</p>
+                <button class="btn btn-primary btn-submit" 
+                        data-service-id="1" 
+                        data-service-name="Оформить карту москвича">
+                    Подать заявку
+                </button>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <div class="service-card-header">Оплатить штрафы ГИБДД</div>
+            <div class="service-card-body">
+                <p>Проверка и оплата штрафов онлайн</p>
+                <p class="service-card-price">От 500 ₽</p>
+                <button class="btn btn-primary btn-submit" 
+                        data-service-id="2" 
+                        data-service-name="Оплатить штрафы ГИБДД">
+                    Оплатить / Проверить
+                </button>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <div class="service-card-header">Оплатить налоги</div>
+            <div class="service-card-body">
+                <p>Удобная оплата транспортного, имущественного и земельного налога</p>
+                <p class="service-card-price">По сумме налога</p>
+                <button class="btn btn-primary btn-submit" 
+                        data-service-id="3" 
+                        data-service-name="Оплатить налоги">
+                    Оплатить
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
