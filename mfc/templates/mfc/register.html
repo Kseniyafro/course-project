@@ -1,0 +1,20 @@
+{% extends 'mfc/base.html' %}
+
+{% block title %}Регистрация оператора — МФЦ{% endblock %}
+
+{% block content %}
+<div class="container" style="max-width: 500px; margin: 60px auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+    <h2 style="text-align: center; color: #2c3e50; margin-bottom: 25px;">Регистрация нового сотрудника</h2>
+    
+    <form method="post">
+        {% csrf_token %}
+        <div style="margin-bottom: 15px;">
+            {{ form.as_p }}
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 16px;">Создать аккаунт</button>
+    </form>
+    
+    <p style="text-align: center; margin-top: 15px; font-size: 14px; color: #7f8c8d;">
+        Уже есть аккаунт? <a href="{% url 'login' %}" style="color: #d32f2f; text-decoration: none; font-weight: bold;">Войти</a>
+    </p>
+</div>

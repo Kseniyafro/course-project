@@ -1,59 +1,51 @@
 {% extends 'mfc/base.html' %}
+{% load static %}
 
-{% block title %}МФЦ — главная{% endblock %}
+{% block title %}Главная — МФЦ Мои Документы{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'mfc/home.css' %}">
+{% endblock %}
 
 {% block content %}
-
-<header>
-    <div class="container">
-        <h1>МФЦ Москвы онлайн</h1>
-        <p>Подавайте заявки без очередей — быстро и удобно</p>
-    </div>
-</header>
-
-<div class="container">
-    <h2 style="text-align:center; margin:2rem 0 1.5rem;">Популярные услуги</h2>
-
-    <div class="service-grid">
-        <div class="service-card">
-            <div class="service-card-header">Оформить карту москвича</div>
-            <div class="service-card-body">
-                <p>Льготная карта для транспорта, скидок и социальных выплат</p>
-                <p class="service-card-price">Бесплатно</p>
-                <button class="btn btn-primary btn-submit" 
-                        data-service-id="1" 
-                        data-service-name="Оформить карту москвича">
-                    Подать заявку
-                </button>
+<div class="hero-section">
+    <div class="container hero-container">
+        <div class="hero-text">
+            <h1>Государственные услуги стали ближе и проще</h1>
+            <p>Запишитесь на прием в Многофункциональный центр онлайн, управляйте своими талонами и экономьте время.</p>
+            <div class="cta-buttons">
+                <a href="/api/appointments/" target="_blank" class="btn btn-primary">Создать запись через API</a>
+                <a href="/api/services/" target="_blank" class="btn btn-secondary">Список услуг</a>
             </div>
         </div>
-
-        <div class="service-card">
-            <div class="service-card-header">Оплатить штрафы ГИБДД</div>
-            <div class="service-card-body">
-                <p>Проверка и оплата штрафов онлайн</p>
-                <p class="service-card-price">От 500 ₽</p>
-                <button class="btn btn-primary btn-submit" 
-                        data-service-id="2" 
-                        data-service-name="Оплатить штрафы ГИБДД">
-                    Оплатить / Проверить
-                </button>
-            </div>
-        </div>
-
-        <div class="service-card">
-            <div class="service-card-header">Оплатить налоги</div>
-            <div class="service-card-body">
-                <p>Удобная оплата транспортного, имущественного и земельного налога</p>
-                <p class="service-card-price">По сумме налога</p>
-                <button class="btn btn-primary btn-submit" 
-                        data-service-id="3" 
-                        data-service-name="Оплатить налоги">
-                    Оплатить
-                </button>
+        <div class="hero-badge">
+            <div class="badge-card">
+                <h3>Записей сегодня</h3>
+                <span class="badge-number">⚡ Быстро</span>
+                <p>Используйте эндпоинт <code class="api-code">/api/appointments/today/</code> для просмотра очереди оператором окна.</p>
             </div>
         </div>
     </div>
 </div>
 
+<div class="features-section container">
+    <h2>Возможности системы по ролям</h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="icon">👤</div>
+            <h3>Заявитель</h3>
+            <p>Выбор услуг, просмотр доступных окон, быстрая запись на удобное время и валидация от дубликатов талонов.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">🧑‍✈️</div>
+            <h3>Оператор окна</h3>
+            <p>Контроль очереди на текущий день через выделенный экшен, просмотр расписания своего окна обслуживания.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">⚙️</div>
+            <h3>Администратор</h3>
+            <p>Полное управление справочниками услуг, офисов, ведение логов изменений моделей через <code class="code-inline">simple_history</code>.</p>
+        </div>
+    </div>
+</div>
 {% endblock %}

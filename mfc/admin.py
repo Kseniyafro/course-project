@@ -8,6 +8,7 @@ from .models import Office, Service, Appointment
 class AppointmentResource(resources.ModelResource):
 
     def get_export_queryset(self, request):
+        # Экспортируем только записи в активные офисы
         return Appointment.objects.filter(
             service__office__is_active=True
         )
@@ -29,7 +30,7 @@ class AppointmentResource(resources.ModelResource):
         )
 
 
-# ✅ Inline УСЛУГ внутри ОФИСА
+# Inline отображение услуг внутри карточки Офиса МФЦ
 class ServiceInline(admin.TabularInline):
     model = Service
     extra = 0
@@ -56,7 +57,5 @@ class ServiceAdmin(admin.ModelAdmin):
 class AppointmentAdmin(ExportMixin, admin.ModelAdmin):
     resource_class = AppointmentResource
     list_display = ('full_name', 'service', 'appointment_date')
-    list_filter = ('service',)
+    list_filter = ('service__office', 'service')  # Фильтрация по офисам и услугам
     search_fields = ('full_name', 'email')
-
-
