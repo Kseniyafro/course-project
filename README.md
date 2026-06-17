@@ -1,4 +1,7 @@
 АДМИН ПАНЕЛЬ
-Имя пользователя: adminadmin
-Адрес электронной почты: ksufrolova2006@yandex.ru
-Password: admin
+Имя пользователя: admin
+Пароль: adminpassword
+
+ОПЕРАТОР:
+Имя пользователя: operator1
+Пароль: operatorpassword
