@@ -1,0 +1,193 @@
+/* Главный баннер */
+.hero-section {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 60px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h1 {
+    font-size: 40px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-text p {
+    font-size: 18px;
+    color: #7f8c8d;
+    margin-bottom: 30px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.btn-primary {
+    background-color: #d32f2f;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #b71c1c;
+}
+
+.btn-secondary {
+    background-color: #2e7d32;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #1b5e20;
+}
+
+/* Бейдж */
+.hero-badge {
+    flex: 1;
+    text-align: center;
+}
+
+.badge-card {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.badge-card h3 {
+    color: #2c3e50;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.badge-number {
+    font-size: 24px;
+    color: #d32f2f;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.badge-card p {
+    color: #7f8c8d;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.api-code {
+    background: #f1f3f5;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    color: #d32f2f;
+}
+
+/* Возможности системы */
+.features-section {
+    padding: 60px 0;
+}
+
+.features-section h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 40px;
+    font-size: 28px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.feature-card {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.feature-card:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.feature-card .icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    color: #2c3e50;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    color: #7f8c8d;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.code-inline {
+    background: #f1f3f5;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    color: #d32f2f;
+}
+
+/* Адаптивная верстка */
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .hero-text h1 {
+        font-size: 28px;
+    }
+
+    .hero-text p {
+        font-size: 16px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        display: block;
+        text-align: center;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .features-section h2 {
+        font-size: 22px;
+    }
+}

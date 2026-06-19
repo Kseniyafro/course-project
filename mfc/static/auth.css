@@ -1,0 +1,123 @@
+/* Стили для страниц аутентификации (логин и регистрация) */
+
+.auth-container {
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.auth-title {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.auth-form {
+    margin-bottom: 15px;
+}
+
+.auth-form-group {
+    margin-bottom: 15px;
+}
+
+.auth-form p {
+    margin-bottom: 10px;
+}
+
+.auth-form label {
+    display: block;
+    color: #34495e;
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.auth-form input:focus {
+    outline: none;
+    border-color: #d32f2f;
+    box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
+}
+
+.auth-form ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+    color: #7f8c8d;
+}
+
+.auth-form ul li {
+    margin-bottom: 5px;
+    color: #7f8c8d;
+}
+
+.form-submit {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-submit:hover {
+    background-color: #b71c1c;
+}
+
+.form-submit:active {
+    transform: scale(0.98);
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+.auth-footer a {
+    color: #d32f2f;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.auth-footer a:hover {
+    color: #b71c1c;
+}
+
+/* Адаптивная верстка */
+@media (max-width: 768px) {
+    .auth-container {
+        margin: 30px auto;
+        padding: 15px;
+    }
+
+    .auth-title {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .form-submit {
+        padding: 14px;
+    }
+}

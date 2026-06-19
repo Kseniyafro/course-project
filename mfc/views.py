@@ -7,7 +7,10 @@ from rest_framework.pagination import PageNumberPagination
 from django.utils.timezone import now
 from django.shortcuts import render
 from django.db.models import Count
-
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.shortcuts import redirect, get_object_or_404, render
+from django.contrib import messages
 from .models import Office, Service, Appointment
 from .serializers import (
     OfficeSerializer,
@@ -108,10 +111,6 @@ def home(request):
     return render(request, 'mfc/home.html')
 
 
-from django.contrib.auth import login, authenticate, logout
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.shortcuts import redirect
-
 # Страница регистрации
 def register_view(request):
     if request.method == 'POST':
@@ -141,3 +140,39 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('home')
+
+def services_list_view(request):
+    services = Service.objects.select_related('office').all()
+    return render(request, 'mfc/services_list.html', {'services': services})
+
+# HTML-страница записи на конкретную услугу
+def book_appointment_view(request, service_id):
+    service = get_object_or_404(Service, id=service_id)
+    
+    if request.method == 'POST':
+        full_name = request.POST.get('full_name')
+        email = request.POST.get('email')
+        appointment_date = request.POST.get('appointment_date')
+        
+        appointment = Appointment(
+            service=service,
+            full_name=full_name,
+            email=email,
+            appointment_date=appointment_date
+        )
+        
+        try:
+            appointment.full_clean()
+            appointment.save()
+            messages.success(request, f'Вы успешно записаны! Ваш талон в {service.office.name} оформлен.')
+            return redirect('services_list_html')
+        except Exception as e:
+            error_message = "Ошибка валидации"
+            if hasattr(e, 'message_dict') and 'appointment_date' in e.message_dict:
+                error_message = e.message_dict['appointment_date'][0]
+            elif hasattr(e, 'messages'):
+                error_message = e.messages[0]
+                
+            messages.error(request, error_message)
+            
+    return render(request, 'mfc/book_appointment.html', {'service': service})

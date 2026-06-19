@@ -1,0 +1,143 @@
+/* Стили для страницы каталога услуг */
+
+.services-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.services-title {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+/* Сообщения успеха и ошибок */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Список услуг */
+.services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.service-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-info {
+    max-width: 70%;
+}
+
+.service-title {
+    margin: 0 0 10px 0;
+    color: #d32f2f;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.service-description {
+    margin: 0 0 10px 0;
+    color: #34495e;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.service-meta {
+    color: #7f8c8d;
+    font-size: 13px;
+}
+
+.service-meta strong {
+    font-weight: 600;
+}
+
+.service-actions {
+    text-align: right;
+}
+
+.btn-book {
+    background-color: #d32f2f;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.btn-book:hover {
+    background-color: #b71c1c;
+}
+
+/* Когда нет услуг */
+.no-services {
+    text-align: center;
+    color: #7f8c8d;
+    padding: 40px;
+    font-size: 16px;
+}
+
+/* Адаптивная верстка */
+@media (max-width: 768px) {
+    .services-container {
+        margin: 20px auto;
+        padding: 10px;
+    }
+
+    .services-title {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .service-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .service-info {
+        max-width: 100%;
+    }
+
+    .service-actions {
+        width: 100%;
+        text-align: left;
+    }
+
+    .btn-book {
+        width: 100%;
+        text-align: center;
+    }
+}

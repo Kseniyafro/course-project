@@ -5,10 +5,12 @@ from mfc.views import (
     OfficeViewSet,
     ServiceViewSet,
     AppointmentViewSet,
+    book_appointment_view,
     home,  
     login_view,
     register_view,
     logout_view,
+    services_list_view,
 )
 
 router = DefaultRouter()
@@ -21,7 +23,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     
-    # Пути для авторизации/регистрации оператора и клиентов
+    # Новые HTML-страницы для клиентов
+    path('services/', services_list_view, name='services_list_html'),
+    path('services/book/<int:service_id>/', book_appointment_view, name='book_appointment'),
+    
+    # Авторизация
     path('login/', login_view, name='login'),
     path('register/', register_view, name='register'),
     path('logout/', logout_view, name='logout'),

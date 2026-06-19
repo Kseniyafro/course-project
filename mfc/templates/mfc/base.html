@@ -20,7 +20,7 @@
    
             <nav class="nav-links" style="display: flex; align-items: center; gap: 15px;">
                <a href="/api/" target="_blank" class="nav-btn api-btn">Просмотр API</a>
-               
+               <a href="{% url 'services_list_html' %}" class="nav-btn" style="background-color: #d32f2f; color: white;">Каталог услуг</a>
                {% if user.is_authenticated %}
                   <span style="font-size: 14px; color: #2c3e50;">Вы вошли как: <strong>{{ user.username }}</strong></span>
                   <a href="/api/appointments/today/" target="_blank" class="nav-btn api-btn" style="background-color: #e8f5e9; color: #2e7d32;">Талоны на сегодня</a>
@@ -41,7 +41,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Информационная система МФЦ. Все права защищены.</p>
+            <!-- <p>&copy; 2026 Информационная система МФЦ. Все права защищены.</p> -->
         </div>
     </footer>
 

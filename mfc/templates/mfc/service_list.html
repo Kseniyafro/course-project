@@ -1,0 +1,41 @@
+{% extends 'mfc/base.html' %}
+{% load static %}
+
+{% block title %}Доступные государственные услуги — МФЦ{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'service_list.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container services-container">
+    <h2 class="services-title">Каталог государственных услуг</h2>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {% if message.tags == 'success' %}alert-success{% else %}alert-error{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="services-list">
+        {% for service in services %}
+            <div class="service-card">
+                <div class="service-info">
+                    <h3 class="service-title">{{ service.title }}</h3>
+                    <p class="service-description">{{ service.description }}</p>
+                    <small class="service-meta">
+                        <strong>Филиал:</strong> {{ service.office.name }} | ⏱ <strong>Длительность:</strong> {{ service.duration_minutes }} мин.
+                    </small>
+                </div>
+                <div class="service-actions">
+                    <a href="{% url 'book_appointment' service.id %}" class="btn-book">Записаться</a>
+                </div>
+            </div>
+        {% empty %}
+            <p class="no-services">В настоящий момент нет доступных услуг.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

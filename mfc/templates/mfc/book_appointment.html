@@ -1,0 +1,47 @@
+{% extends 'mfc/base.html' %}
+{% load static %}
+
+{% block title %}Запись на услугу — МФЦ{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'mfc/book_appointment.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="book-container">
+    <a href="{% url 'services_list_html' %}" class="back-link">← Вернуться к каталогу</a>
+    
+    <h2 class="appointment-heading">Запись на прием</h2>
+    <p class="service-name">{{ service.title }}</p>
+
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <div class="alert-error">
+                    ⚠️ {{ message }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label class="form-label">Ваше полное ФИО:</label>
+            <input type="text" name="full_name" required class="form-input" placeholder="Иванов Иван Иванович">
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Контактный Email:</label>
+            <input type="email" name="email" required class="form-input" placeholder="ivanov@example.com">
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Выберите дату и время визита:</label>
+            <input type="datetime-local" name="appointment_date" required class="form-input">
+        </div>
+
+        <button type="submit" class="form-submit">Подтвердить запись</button>
+    </form>
+</div>
+{% endblock %}
